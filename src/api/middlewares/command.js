@@ -5,6 +5,5 @@ export const hearCommand = () => (req, res, next) => {
   vk.updates.hear(trigger, async context => {
     await context.send(answer);
   });
-
   //   next();
 };

@@ -60,7 +60,6 @@ app.post('/api/commands', async (request, response) => {
 });
 
 vk.updates.hear(/ляпоса (.+)/i, async context => {
-  debugger;
   const userResource = await vk.snippets.resolveResource(context.$match[1]);
   const user = await vk.api.users.get({ user_id: userResource.id });
   const userSender = await vk.api.users.get({

@@ -7,7 +7,7 @@ const chance = new Chance();
 
 const string1 = 'ляпоса $';
 const reg = new RegExp(string1.replace('$', '(.+)'));
-const templateString = '$ получил ляпоса'
+const templateString = '$ получил ляпоса';
 
 export default () => {
   return new Promise((resolve, reject) => {
