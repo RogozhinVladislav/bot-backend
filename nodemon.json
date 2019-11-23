@@ -11,6 +11,6 @@
     "execMap": {
         "js": "babel-node"
     },
-    "ext": ".js,.json",
+    "ext": "ts",
     "watch": "./"
 }

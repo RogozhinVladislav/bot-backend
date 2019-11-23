@@ -1,7 +1,7 @@
 import initCommands from './init-commands';
 
 export default () => {
-  initCommands().then(info => {
+  initCommands().then((info: any) => {
     console.log(`running ${info.commandsCount} commands`);
   });
 };

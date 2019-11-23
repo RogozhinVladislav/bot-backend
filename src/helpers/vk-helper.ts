@@ -1,5 +1,5 @@
 import { VK } from 'vk-io';
-import { TOKEN } from '../config';
+const { TOKEN } = process.env;
 
 const vk = new VK({
   token: TOKEN,

@@ -9,4 +9,4 @@ router.route('/').post(commandController.create, hearCommand());
 router.route('/:id').put(commandController.update);
 router.route('/:id').delete(commandController.delete);
 
-module.exports = router;
+export default router;

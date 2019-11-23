@@ -1,6 +1,8 @@
 import express from 'express';
-import { CONFIRMATION } from '../../../config';
+// import { CONFIRMATION } from '../../../config';
 import commandRoutes from './command.route';
+
+const { CONFIRMATION } = process.env;
 
 const router = express.Router();
 
@@ -21,4 +23,4 @@ router.post('/', (req, res) => {
 
 router.use('/commands', commandRoutes);
 
-module.exports = router;
+export default router;
