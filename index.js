@@ -1,10 +1,10 @@
-require('dotenv').config();
+require('dotenv').config()
 
 if (process.env.NODE_ENV === 'development') {
   require('@babel/register')({
     extensions: ['.js', '.ts'],
-  });
-  require('./src/app');
+  })
+  require('./src/app')
 } else {
-  require('./lib/app');
+  require('./lib/app')
 }

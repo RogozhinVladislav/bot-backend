@@ -1,12 +1,13 @@
-import express from 'express';
-import commandController from '../../controllers/command.controller';
-import { hearCommand } from '../../middlewares/command';
+import express from 'express'
+import upload from '../../../upload'
+import commandController from '../../controllers/command.controller'
+import { hearCommand } from '../../middlewares/command'
 
-const router = express.Router();
+const router = express.Router()
 
-router.route('/').get(commandController.list);
-router.route('/').post(commandController.create, hearCommand());
-router.route('/:id').put(commandController.update);
-router.route('/:id').delete(commandController.delete);
+router.route('/').get(commandController.list)
+router.route('/').post(upload.single('file'), commandController.create, hearCommand())
+router.route('/:id').put(commandController.update)
+router.route('/:id').delete(commandController.delete)
 
-export default router;
+export default router

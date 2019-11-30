@@ -1,7 +1,7 @@
-import mongoose from 'mongoose';
-const Schema = mongoose.Schema;
+import mongoose from 'mongoose'
+const Schema = mongoose.Schema
 
-const PrisonCellSchema = new Schema({}, { strict: false });
-const PrisonCell = mongoose.model('PrisonCell', PrisonCellSchema);
+const prisonCellSchema = new Schema({}, { strict: false })
+const prisonCell = mongoose.model('PrisonCell', prisonCellSchema)
 
-export default PrisonCell;
+export default prisonCell
