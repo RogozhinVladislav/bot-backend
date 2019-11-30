@@ -3,5 +3,5 @@ export default {
   MONGO_URL: 'mongodb://localhost/bot',
   CONFIRMATION: process.env.CONFIRMATION,
   TOKEN: process.env.TOKEN,
-  ACCESS_TOKEN: process.env.ACCESS_TOKEN
-};
+  ACCESS_TOKEN: process.env.ACCESS_TOKEN,
+}

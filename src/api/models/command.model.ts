@@ -1,7 +1,7 @@
-import mongoose from 'mongoose';
-const Schema = mongoose.Schema;
+import mongoose from 'mongoose'
+const Schema = mongoose.Schema
 
-const SimpleCommandSchema = new Schema({}, { strict: false });
-const SimpleCommand = mongoose.model('SimpleCommand', SimpleCommandSchema);
+const simpleCommandSchema = new Schema({}, { strict: false })
+const simpleCommand = mongoose.model('SimpleCommand', simpleCommandSchema)
 
-export default SimpleCommand;
+export default simpleCommand
