@@ -3,7 +3,7 @@ import uuidv4 from 'uuid/v4'
 
 const DIR = 'public/'
 
-const allowedImageTypes = ['image/png', 'image/jpg', 'image/jpeg', 'image/gif']
+const allowedImageTypes = ['image/png', 'image/jpg', 'image/jpeg']
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
