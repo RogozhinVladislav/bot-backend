@@ -4,6 +4,7 @@ import uuidv4 from 'uuid/v4'
 const DIR = 'public/'
 
 const allowedImageTypes = ['image/png', 'image/jpg', 'image/jpeg']
+const allowedAudioTypes = ['audio/mp3']
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -21,7 +22,7 @@ const storage = multer.diskStorage({
 const upload = multer({
   storage,
   fileFilter: (req, file, cb) => {
-    if (allowedImageTypes.includes(file.mimetype)) {
+    if (allowedImageTypes.includes(file.mimetype) || allowedAudioTypes.includes(file.mimetype)) {
       cb(null, true)
     } else {
       cb(null, false)

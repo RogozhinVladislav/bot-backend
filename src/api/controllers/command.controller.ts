@@ -14,6 +14,10 @@ export default {
   async create(req: Request, res: Response, next: NextFunction) {
     try {
       const url = `${req.protocol}://${req.get('host')}`
+
+      // const image = req.files.audio && req.files.audio[0];
+
+      // debugger
       const command = new Command({
         ...req.body,
         attachment: `${url}/public/${req.file.filename}`,
