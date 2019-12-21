@@ -12,6 +12,7 @@
         "quotemark": [true, "single"],
         "ordered-imports": false,
         "ter-arrow-parens": false,
+        "one-variable-per-declaration": false,
         "import-name": false
     },
     "rulesDirectory": []
