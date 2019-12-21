@@ -13,15 +13,17 @@ export default {
   },
   async create(req: Request, res: Response, next: NextFunction) {
     try {
-      const url = `${req.protocol}://${req.get('host')}`
+      const url = `${req.protocol}://${req.get('host')}`;
 
-      // const image = req.files.audio && req.files.audio[0];
+      const image = req.files.image && req.files.image[0];
+      const audio = req.files.audio && req.files.audio[0];
 
       // debugger
       const command = new Command({
         ...req.body,
-        attachment: `${url}/public/${req.file.filename}`,
-      })
+        imageAttachment: `${url}/public/${image.filename}`,
+        audioAttachment: `${url}/public/${audio.filename}`,
+      });
       const result = await command.save()
       res.send(result)
       next()

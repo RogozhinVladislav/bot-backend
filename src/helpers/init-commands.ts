@@ -16,13 +16,17 @@ export default () => {
       const user = await vk.api.users.get({ user_id: userResource.id })
       const userSender = await vk.api.users.get({
         user_id: context.payload.from_id,
-      })
+      });
       const targetUser = chance.pickone([user, userSender])
 
       const answerString = templateString.replace('$', user[0].first_name)
 
       await context.send(`${answerString}`)
-    })
+    });
+
+    vk.updates.hear('hi', async context => {
+      context.send('hello')
+    });
 
     Command.find()
       .lean()
@@ -30,10 +34,13 @@ export default () => {
         commands.forEach(command => {
           if (command.trigger) {
             vk.updates.hear(command.trigger, async context => {
-              const sendPhoto: any = command.attachment
-                ? context.sendPhoto(command.attachment)
+              const sendPhoto: any = command.imageAttachment
+                ? context.sendPhoto(command.imageAttachment)
                 : Promise.resolve()
-              await Promise.all([context.send(command.answer), sendPhoto])
+              const sendAudio: any = command.audioAttachment
+                  ? context.sendAudioMessage(command.audioAttachment)
+                  : Promise.resolve()
+              await Promise.all([context.send(command.answer), sendPhoto, sendAudio])
             })
           }
         })
