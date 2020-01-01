@@ -1,12 +1,12 @@
-import app from './config/express'
-import mongoose from './config/mongoose'
+import app from './express/express'
+import mongoose from './express/mongoose'
 const { PORT } = process.env
 
 import initBot from './helpers/init-bot'
 import vk from './helpers/vk'
 
 mongoose()
-  .then((info) => {
+  .then((info:any) => {
     console.log(`Connected to ${info.host}:${info.port}/${info.name}`)
     app.listen(PORT, () => {
       console.log(`Listenning port: ${PORT}`)

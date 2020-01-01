@@ -15,14 +15,15 @@ export default {
     try {
       const url = `${req.protocol}://${req.get('host')}`;
 
-      const image = req.files.image && req.files.image[0];
-      const audio = req.files.audio && req.files.audio[0];
+      const files = req.files as { [fieldname: string]: Express.Multer.File[] };
 
-      // debugger
+      const image = files.image && files.image[0];
+      const audio = files.audio && files.audio[0];
+
       const command = new Command({
         ...req.body,
-        imageAttachment: `${url}/public/${image.filename}`,
-        audioAttachment: `${url}/public/${audio.filename}`,
+        ...(image && { imageAttachment: `${url}/public/${image.filename }`}),
+        ...(audio && { audioAttachment: `${url}/public/${audio.filename }`}),
       });
       const result = await command.save()
       res.send(result)
