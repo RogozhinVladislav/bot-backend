@@ -1,8 +1,8 @@
 import { VK } from 'vk-io'
-const { TOKEN } = process.env
+import config from '../config'
 
 const vk = new VK({
-  token: TOKEN,
+  token: config.TOKEN,
 })
 
 export default vk

@@ -27,7 +27,7 @@ export default () => {
     vk.updates.hear('hi', async context => {
       context.send('hello')
     });
-
+    
     Command.find()
       .lean()
       .exec((err, commands) => {
