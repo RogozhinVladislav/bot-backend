@@ -9,7 +9,6 @@ export default {
   async register(req: Request, res: Response, next: NextFunction) {
     try {
       const errors = validationResult(req)
-      debugger
       if (!errors.isEmpty()) {
         return res.status(400).json({
           errors: errors.array(),
@@ -18,17 +17,18 @@ export default {
       }
 
       const { email, password, username } = req.body
-
       const candidate = await User.findOne({ email })
+
       if (candidate) {
-        return response.status(400).json({ message: 'Такой пользователь уже существует' })
+        return res.status(400).json({ message: 'Пользователь с таким email уже существует' })
       }
+
       const hashedPassword = await bcrypt.hash(password, 12)
       const user = new User({ email, username, password: hashedPassword })
 
       await user.save();
 
-      res.status(201).json({ message: 'Пользователь создан' })
+      res.status(201).json({ message: 'Регистрация прошла успешно, новый пользователь зарегистрирован' })
     } catch (error) {
       res.status(500).json({ error, message: 'Что-то пошло не так, попробуйте снова' })
       next(error);
