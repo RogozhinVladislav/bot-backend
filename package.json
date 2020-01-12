@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
+    "build": "babel src --out-dir lib --extensions \".ts,.tsx\" --source-maps inline",
     "dev": "nodemon index.js",
     "debug": "nodemon --inspect index.js",
-    "start": "node index.js",
-    "build": "babel src --out-dir lib --copy-files --extensions '.ts,.js'",
     "type-check": "tsc",
     "type-check:watch": "npm run type-check -- --watch",
     "prettier": "prettier --write \"{,!(node_modules|dist|build|coverage)/**/}*.{js,jsx,ts,tsx,json}\"",
