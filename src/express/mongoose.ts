@@ -11,7 +11,7 @@ export default () => {
       .on('close', () => console.log('Database connection closed.'))
       .once('open', () => resolve(mongoose.connections[0]))
 
-    mongoose.connect(config.MONGO_URL, {
+    mongoose.connect(config.MONGO_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useCreateIndex: true,
