@@ -1,7 +1,8 @@
 import express from 'express'
 // import { CONFIRMATION } from '../../../config';
-import commandRoutes from './command.route'
 import authRoutes from './auth.routes'
+import commandRoutes from './command.route'
+import interactionRoutes from './interaction.route'
 
 const { CONFIRMATION } = process.env
 
@@ -22,7 +23,8 @@ router.post('/', (req, res) => {
   if (body.type === 'confirmation') res.end(CONFIRMATION)
 })
 
-router.use('/commands', commandRoutes)
 router.use('/auth', authRoutes)
+router.use('/commands', commandRoutes)
+router.use('/interactions', interactionRoutes)
 
 export default router
