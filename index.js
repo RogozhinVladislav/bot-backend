@@ -4,7 +4,7 @@ if (process.env.NODE_ENV === 'development') {
   require('@babel/register')({
     extensions: ['.js', '.ts'],
   })
-  require('./src/app')
+  require('./src')
 } else {
-  require('./lib/app')
+  require('./lib')
 }
